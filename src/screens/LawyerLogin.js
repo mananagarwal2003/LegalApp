@@ -5,7 +5,7 @@ const LawyerLogin = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={{flex:1,alignItems:'center',justifyContent:'center',paddingTop:50}}>
-      <Text style={{fontSize:30,fontWeight:'600'}}>Fill The Details</Text>
+      <Text style={{fontSize:30,fontWeight:'600'}}>Fill The Lawyer Details</Text>
       </View>
       <View style={{ padding: 10 }}>
         <Text style={{fontSize:17,fontWeight:'500'}}>Name</Text>

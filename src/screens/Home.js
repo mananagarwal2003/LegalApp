@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, Pressable  } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
-import UserLogin from './UserLogin';
 
 const Home = ({ navigation }) => {
   return (
