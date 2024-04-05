@@ -37,8 +37,8 @@ const Default = () => {
         setSelectedTab(2);
       }}>
         <Image source={
-          selectedTab==2? require('../images/searchfill.png'):
-          require('../images/search.png')} style={styles.bottomTabIcon}></Image>
+          selectedTab==2? require('../images/robot2.png'):
+          require('../images/robot.png')} style={{width:30,height:30}}></Image>
       </TouchableOpacity>
       <TouchableOpacity style={styles.bottomTab}
        onPress={()=> {
