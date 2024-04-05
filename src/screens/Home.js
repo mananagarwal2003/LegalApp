@@ -75,8 +75,3 @@ const Home = ({ navigation }) => {
 export default Home
 
 const styles = StyleSheet.create({})
-
-
-
-
-
