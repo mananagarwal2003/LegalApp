@@ -65,7 +65,8 @@ const LawyerMenu = ({ onSelectOption }) => {
       </View>
       <ScrollView style={styles.scrollView}>
         {renderLawyerPairs()}
-      </ScrollView>
+        <View style={{marginTop:100}}></View>
+      </ScrollView>  
     </View>
   );
 };
@@ -104,10 +105,10 @@ const styles = StyleSheet.create({
   },
   option: {
     flex: 0.48, // Adjusted width to fit two options in each row effectively
-    height: 50,
+    height: 200,
     backgroundColor: 'lightblue',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "flex-end",
     borderRadius: 10,
   },
   optionText: {

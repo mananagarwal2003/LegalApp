@@ -17,7 +17,55 @@ const UserLogin = ({navigation}) => {
             borderColor: "#d0d0d0",
             borderWidth: 1,
             marginTop: 10,
-            borderRadius: 5,
+            borderRadius: 20,
+          }}
+        />
+        <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Email</Text>
+        <TextInput
+          placeholder="Email"
+          placeholderTextColor={"black"}
+          style={{
+            padding: 10,
+            borderColor: "#d0d0d0",
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 20,
+          }}
+        />
+        <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Password</Text>
+        <TextInput
+          placeholder="Password"
+          placeholderTextColor={"black"}
+          style={{
+            padding: 10,
+            borderColor: "#d0d0d0",
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 20,
+          }}
+        />
+        <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Location</Text>
+        <TextInput
+          placeholder="Location"
+          placeholderTextColor={"black"}
+          style={{
+            padding: 10,
+            borderColor: "#d0d0d0",
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 20,
+          }}
+        />
+        <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Phone Number</Text>
+        <TextInput
+          placeholder="Phone no."
+          placeholderTextColor={"black"}
+          style={{
+            padding: 10,
+            borderColor: "#d0d0d0",
+            borderWidth: 1,
+            marginTop: 10,
+            borderRadius: 20,
           }}
         />
         <Pressable 
@@ -34,13 +82,13 @@ const UserLogin = ({navigation}) => {
                 style={{
                   width: 200,
                   height: 50,
-                  borderRadius: 10,
-                  backgroundColor: "grey",
+                  borderRadius: 30,
+                  backgroundColor: "black",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-               <Text style={{ fontWeight: "400",fontSize:30 }}>
+               <Text style={{ fontWeight: "500",fontSize:20,color:'white' }}>
                 Login
               </Text>
               </View>

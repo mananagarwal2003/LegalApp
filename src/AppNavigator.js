@@ -7,6 +7,7 @@ import Default from "./screens/Default"
 import Menu from "./screens/Menu"
 import Profile from "./screens/Profile";
 import Bookings from "./screens/Bookings";
+import Corpus from "./screens/Corpus"
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
@@ -45,6 +46,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Corpus"
+          component={Corpus}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

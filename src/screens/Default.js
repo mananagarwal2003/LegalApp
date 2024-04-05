@@ -3,6 +3,7 @@ import React, { useState,useEffect } from 'react';
 import Menu from "../screens/Menu";
 import Bookings from './Bookings';
 import Profile from "../screens/Profile";
+import Corpus from "../screens/Corpus"
 const Default = () => {
   const [selectedTab, setSelectedTab]= useState(0);
   return (
@@ -12,9 +13,9 @@ const Default = () => {
     ):selectedTab==1?(
       <Bookings/>
     )
-    // :selectedTab==2?(
-    //   <Wishlist/>
-    //  )
+    :selectedTab==2?(
+      <Corpus/>
+     )
      :(<Profile/>)}
       <View style={styles.bottomView}>
       <TouchableOpacity style={styles.bottomTab} 
@@ -29,6 +30,14 @@ const Default = () => {
       }}>
         <Image source={
           selectedTab==1? require('../images/searchfill.png'):
+          require('../images/search.png')} style={styles.bottomTabIcon}></Image>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.bottomTab}
+      onPress={()=> {
+        setSelectedTab(2);
+      }}>
+        <Image source={
+          selectedTab==2? require('../images/searchfill.png'):
           require('../images/search.png')} style={styles.bottomTabIcon}></Image>
       </TouchableOpacity>
       <TouchableOpacity style={styles.bottomTab}
