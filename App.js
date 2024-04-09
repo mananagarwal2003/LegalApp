@@ -7,8 +7,8 @@ import Corpus from "./src/screens/Corpus";
 
 const App = () => {
   return (
-    <Corpus/>
-      //<AppNavigator/>
+    // <Corpus/>
+      <AppNavigator/>
       // <LoginPageUser/>
   );
 };
