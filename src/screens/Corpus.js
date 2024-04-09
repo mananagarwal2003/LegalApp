@@ -1,30 +1,62 @@
-import { StyleSheet, Text, View,TextInput,Button} from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import React, { useState } from "react";
+import axios from "axios";
+import { KeyboardAvoidingView } from "react-native";
 
 const Corpus = () => {
+const [message,setdata]=useState('')
+const [ans,setans]=useState('')
+ async function handlesubmit() {
+    const data={
+    message: message}
+    const response = await axios.post(
+      "http://192.168.176.78:5001/bot",
+      data
+    );
+    answer=response.data.data;
+    console.log(answer)
+    setans(answer);
+    setdata('')
+  }
   return (
-    <View>
-      <View style={{alignItems:'center',flexDirection:'row',position:'absolute',top:620,justifyContent:'space-between',width:'100%'}}>
-      <TextInput
+    <View >
+      <Text style={{alignSelf:"center",marginTop:100}}>{ans}</Text>
+      <KeyboardAvoidingView
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+          position: "absolute",
+          top: 320,
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <TextInput
           placeholder="Name"
           placeholderTextColor={"black"}
           style={styles.InputField}
+          onChangeText={setdata}
+          value={message}
         />
-        <Button title='ok' style={{marginRight:10}}></Button>
-      </View>
+        <Button
+          title="ok"
+          style={{ marginRight: 10 }}
+          onPress={handlesubmit}
+        ></Button>
+      </KeyboardAvoidingView>
     </View>
-  )
-}
+  );
+};
 
-export default Corpus
+export default Corpus;
 
 const styles = StyleSheet.create({
   InputField: {
     padding: 10,
     borderColor: "#d0d0d0",
     borderWidth: 1,
-    width:300,
+    width: 300,
     marginTop: 10,
     borderRadius: 20,
   },
-})
+});
