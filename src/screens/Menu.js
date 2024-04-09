@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView,Image } from 'react-native';
 import { FontAwesome ,MaterialIcons} from '@expo/vector-icons';
 
- const LawyerMenu = ({ onSelectOption }) => {
+ const LawyerMenu = ({ onSelectOption ,navigation}) => {
    const [searchQuery, setSearchQuery] = useState('');
 
 //   // Dummy data for lawyers

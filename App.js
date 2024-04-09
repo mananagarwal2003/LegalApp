@@ -3,10 +3,12 @@ import React from "react";
 import AppNavigator from "./src/AppNavigator";
 import Profile from "./src/screens/Profile";
 import LoginPageUser from "./src/screens/Login/UserLogin";
+import Corpus from "./src/screens/Corpus";
 
 const App = () => {
   return (
-      <AppNavigator/>
+    <Corpus/>
+      //<AppNavigator/>
       // <LoginPageUser/>
   );
 };

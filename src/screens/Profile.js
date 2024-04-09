@@ -12,7 +12,6 @@ const Profile = ({navigation}) => {
       </View>
       <View>
       <Pressable 
-              onPress={()=>navigation.navigate("Home")}
               style={{
                 padding: 12,
                 alignItems: "center",
@@ -38,7 +37,6 @@ const Profile = ({navigation}) => {
               </View>
             </Pressable>
             <Pressable 
-              onPress={()=>navigation.navigate("Home")}
               style={{
                 padding: 12,
                 alignItems: "center",

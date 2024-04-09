@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./screens/Home";
-import Default from "./screens/Default"
+import Default from "./screens/Default/Default"
 import Menu from "./screens/Menu"
 import Profile from "./screens/Profile";
 import Bookings from "./screens/Bookings";
@@ -10,6 +10,7 @@ import LoginPageLawyer from "./screens/Login/LawyerLogin";
 import LoginPageUser from "./screens/Login/UserLogin";
 import LawyerRegister from "./screens/Register/LawyerRegister";
 import UserRegister from "./screens/Register/UserRegister";
+import LawyerDefault from "./screens/Default/LawyerDefault";
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
@@ -43,6 +44,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Default"
           component={Default}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LawyerDefault"
+          component={LawyerDefault}
           options={{ headerShown: false }}
         />
         <Stack.Screen

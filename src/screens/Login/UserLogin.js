@@ -25,7 +25,7 @@ function LoginPageUser({ props ,navigation}) {
       password,
     };
 
-    axios.post('http://192.168.176.78:5001/login-user', userData).then(res => {
+    axios.post('http://192.168.176.183:5001/login-user', userData).then(res => {
       console.log(res.data);
       if (res.data.status == 'ok') {
         Alert.alert('Logged In Successfull');
@@ -33,6 +33,9 @@ function LoginPageUser({ props ,navigation}) {
       }
       else if(res.data.status == 'null'){
         Alert.alert("User doesn't exists!!");
+      }
+      else if(res.data.status == 'Wrongpass') {
+        Alert.alert("wrong password!!");
       }
 
     });

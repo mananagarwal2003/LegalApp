@@ -25,7 +25,7 @@ const UserRegister = ({ navigation }) => {
       Number,
     };
     axios
-      .post("http://192.168.176.78:5001/register-user", userData)
+      .post("http://192.168.176.183:5001/register-user", userData)
       .then((res) => {
         console.log(res.data);
         if (res.data.status == "ok") {

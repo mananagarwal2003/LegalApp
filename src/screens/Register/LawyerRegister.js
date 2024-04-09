@@ -22,7 +22,7 @@ const LawyerRegister = ({navigation}) => {
       LawyerID
     };
     axios
-      .post("http://192.168.176.78:5001/register-Lawyer", LawyerData)
+      .post("http://192.168.176.183:5001/register-Lawyer", LawyerData)
       .then((res) => {
         console.log(res.data);
         if (res.data.status == "ok") {
