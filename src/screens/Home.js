@@ -6,7 +6,7 @@ const Home = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={{flex:1,alignItems:'center',justifyContent:'center',paddingTop:50}}>
-      <Text style={{fontSize:30,fontWeight:'600'}}>SignUp As</Text>
+      <Text style={{fontSize:30,fontWeight:'600'}}>Which describes you Best?</Text>
       </View>
       <View
             style={{
@@ -26,7 +26,7 @@ const Home = ({ navigation }) => {
             >
               <View
                 style={{
-                  width: 200,
+                  width: 250,
                   height: 200,
                   borderRadius: 20,
                   backgroundColor: "white",
@@ -52,7 +52,7 @@ const Home = ({ navigation }) => {
             >
               <View
                 style={{
-                  width: 200,
+                  width: 250,
                   height: 200,
                   borderRadius: 20,
                   backgroundColor: "white",
@@ -66,7 +66,7 @@ const Home = ({ navigation }) => {
                 User
               </Text>
             </Pressable>
-            <Text style={{fontSize:16,fontWeight:'500'}} onPress={()=>navigation.navigate("UserLogin")}>Already Have an Account? Login</Text>
+            {/* <Text style={{fontSize:16,fontWeight:'500'}} onPress={()=>navigation.navigate("UserLogin")}>Already Have an Account? Login</Text> */}
           </View>
     </ScrollView>
   )
