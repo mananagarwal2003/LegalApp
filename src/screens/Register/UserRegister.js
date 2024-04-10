@@ -17,6 +17,16 @@ const UserRegister = ({ navigation }) => {
   const [Location, setLocation] = useState("");
   const [Number, setNumber] = useState(null);
   function handleSubmit() {
+    const phoneRegex = /^\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)){
+      Alert.alert('Error', 'Not valid email address');
+      return;
+    }
+    if (! phoneRegex.test(Number)) {
+      Alert.alert('Error', 'Enter Valid Phone Number');
+      return;
+    }
     const userData = {
       name,
       email,

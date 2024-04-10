@@ -2,16 +2,26 @@ import { StyleSheet, Text, View,ScrollView,TextInput, Alert} from 'react-native'
 import React, { useState } from 'react'
 import BasicButton from '../../Component/BasicButton'
 import axios from 'axios';
-
+import RNPickerSelect from 'react-native-picker-select';
 const LawyerRegister = ({navigation}) => {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Location, setLocation] = useState("");
   const [Number, setNumber] = useState(null);
-  const [LawyerCat, setLawyerCat] = useState("");
   const [LawyerID, setLawyerID] = useState("");
+  const [LawyerCat, setLawyerCat] = useState(null);
   function handleSubmit() {
+    const phoneRegex = /^\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)){
+      Alert.alert('Error', 'Not valid email address');
+      return;
+    }
+    if (! phoneRegex.test(Number)) {
+      Alert.alert('Error', 'Enter Valid Phone Number');
+      return;
+    }
     const LawyerData = {
       name,
       email,
@@ -22,7 +32,7 @@ const LawyerRegister = ({navigation}) => {
       LawyerID
     };
     axios
-      .post("http://192.168.176.183:5001/register-Lawyer", LawyerData)
+      .post("http://100.107.99.2:5001/register-Lawyer", LawyerData)
       .then((res) => {
         console.log(res.data);
         if (res.data.status == "ok") {
@@ -34,6 +44,7 @@ const LawyerRegister = ({navigation}) => {
       })
       .catch((e) => console.log(e));
   }
+  
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={{flex:1,alignItems:'center',justifyContent:'center',paddingTop:50}}>
@@ -84,14 +95,23 @@ const LawyerRegister = ({navigation}) => {
           keyboardType='decimal-pad'
         />
         <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Speciality</Text>
-        <TextInput
-          placeholder="Lawyer Category"
-          placeholderTextColor={"black"}
-          style={styles.InputField}
-          onChangeText={setLawyerCat}
-          value={LawyerCat}
-
-        />
+        <RNPickerSelect
+        placeholder={{
+          label: 'Select Lawyer Category',
+          value: null,
+        }}
+        items={[
+          { label: 'Criminal Lawyer', value: 'Criminal Lawyer' },
+          { label: 'Family Lawyer', value: 'Family Lawyer' },
+          { label: 'Buisness Lawyer', value: 'Buisness Lawyer' },
+          { label: 'Marriage Lawyer', value: 'Marriage Lawyer' },
+          { label: 'Divorce Lawyer', value: 'Divorce Lawyer' },
+          { label: 'Immigration Lawyer', value: 'Immigration Lawyer' },
+        ]}
+        
+        onValueChange={(value) => setLawyerCat(value)}
+        value={LawyerCat}
+      />
         <Text style={{fontSize:17,fontWeight:'500',paddingTop:10}}>Lawyer ID</Text>
         <TextInput
           placeholder="Valid Lawyer ID"
