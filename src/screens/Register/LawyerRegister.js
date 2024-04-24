@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import BasicButton from '../../Component/BasicButton'
 import axios from 'axios';
 import RNPickerSelect from 'react-native-picker-select';
+import { api } from '../../api/api';
 const LawyerRegister = ({navigation}) => {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ const LawyerRegister = ({navigation}) => {
       LawyerID
     };
     axios
-      .post("http://100.107.99.2:5001/register-Lawyer", LawyerData)
+      .post(`${api}/register-Lawyer`, LawyerData)
       .then((res) => {
         console.log(res.data);
         if (res.data.status == "ok") {

@@ -11,6 +11,7 @@ const {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { api } from "../../api/api";
 
 
 function LoginPageUser({ props ,navigation}) {
@@ -25,7 +26,7 @@ function LoginPageUser({ props ,navigation}) {
       password,
     };
 
-    axios.post('http://192.168.176.183:5001/login-user', userData).then(res => {
+    axios.post(`${api}/login-user`, userData).then(res => {
       console.log(res.data);
       if (res.data.status == 'ok') {
         Alert.alert('Logged In Successfull');

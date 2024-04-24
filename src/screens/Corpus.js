@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import React, { useState } from "react";
 import axios from "axios";
 import { KeyboardAvoidingView } from "react-native";
+import { api } from "../api/api";
 
 const Corpus = () => {
 const [message,setdata]=useState('')
@@ -10,7 +11,7 @@ const [ans,setans]=useState('')
     const data={
     message: message}
     const response = await axios.post(
-      "http://192.168.176.78:5001/bot",
+      `${api}/bot`,
       data
     );
     answer=response.data.data;

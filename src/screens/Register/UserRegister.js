@@ -10,6 +10,7 @@ import {
 import React, { useState } from "react";
 import BasicButton from "../../Component/BasicButton";
 import axios from "axios";
+import { api } from "../../api/api";
 const UserRegister = ({ navigation }) => {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +36,7 @@ const UserRegister = ({ navigation }) => {
       Number,
     };
     axios
-      .post("http://192.168.176.183:5001/register-user", userData)
+      .post(`${api}/register-user`, userData)
       .then((res) => {
         console.log(res.data);
         if (res.data.status == "ok") {
