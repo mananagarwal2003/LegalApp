@@ -11,6 +11,7 @@ import LoginPageUser from "./screens/Login/UserLogin";
 import LawyerRegister from "./screens/Register/LawyerRegister";
 import UserRegister from "./screens/Register/UserRegister";
 import LawyerDefault from "./screens/Default/LawyerDefault";
+import CategoryLawyer from "./screens/Category-Lawyer/CategoryLawyer";
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
@@ -69,6 +70,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Corpus"
           component={Corpus}
+          options={{ headerShown: false }}
+        />
+          <Stack.Screen
+          name="CategoryLawyer"
+          component={CategoryLawyer}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
