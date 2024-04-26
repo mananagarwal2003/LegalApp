@@ -1,2 +1,2 @@
-const api="http://192.168.176.78:5001"
+const api="http://192.168.241.183:5001"
 export default api;
