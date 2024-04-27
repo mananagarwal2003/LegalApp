@@ -4,8 +4,6 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { api } from "../../api/api";
 import axios from "axios";
-
-
 const CategoryLawyer = ({navigation}) => {
   const [Category1, setCategory] = useState([]);
   const[lawyers,setLawyers]=useState("");

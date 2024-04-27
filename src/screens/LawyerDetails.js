@@ -15,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function BusinessDetailScreen() {
   const { personDetails } = useRoute().params;
   const navigation = useNavigation();
-  const { name, task, address, image, about } = personDetails;
+  const { name, LawyerCat, Number, LawyerID, about } = personDetails;
   const [isReadMore, setReadMore] = useState(false);
 
   return (
@@ -25,18 +25,19 @@ export default function BusinessDetailScreen() {
           <View style={styles.heading}>
             <TouchableOpacity
               onPress={() => navigation.goBack()}
-              style={{ flexDirection: "row", gap: 10 }}
+              style={{ flexDirection: "row", gap: 10 ,top:10}}
             >
               <Ionicons name="arrow-back-outline" size={30} color="black" />
-              <Text>Personal Details</Text>
+              <Text style={{fontSize:20,fontWeight:'500'}}>Personal Details</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.details}>
-            <Text style={styles.task}>{task}</Text>
-            <Text style={styles.name}>{name} 👩</Text>
-            <Text style={styles.address}>
-              <Ionicons name="location-sharp" size={15} /> {address}
-            </Text>
+            <Image source={require("../images/a.png")} style={styles.image}></Image>
+            <Text style={styles.name}>{name} </Text>
+            <Text style={{color:'grey'}}>{LawyerCat} </Text>
+            {/* <Text style={styles.address}>
+              <Ionicons name="location-sharp" size={15} /> {address} abc
+            </Text> */}
             <View style={styles.aboutContainer}>
               <Text style={styles.aboutHeading}>About Me</Text>
               <ScrollView>
@@ -60,7 +61,7 @@ export default function BusinessDetailScreen() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Contact</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button]}>
+        <TouchableOpacity style={[styles.button]} onPress={()=>navigation.navigate("Checkout")}>
           <Text style={[styles.buttonText]}>Book Now</Text>
         </TouchableOpacity>
       </View>
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor:'white'
   },
   heading: {
     paddingBottom: 30,
@@ -95,9 +97,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   name: {
-    fontSize: 17,
+    fontSize: 22,
+    fontWeight:"700",
     color: "black",
-    marginTop: 8,
+    marginTop: 15,
   },
   address: {
     fontSize: 17,
@@ -137,7 +140,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "grey",
+    backgroundColor: "#D8DCE0",
     borderRadius: 20,
     paddingVertical: 10,
     marginHorizontal: 5,
@@ -147,4 +150,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "black",
   },
+  image:{
+    width:'100%',
+    borderRadius:20,
+    
+
+  }
 });

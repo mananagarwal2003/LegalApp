@@ -13,6 +13,7 @@ import UserRegister from "./screens/Register/UserRegister";
 import LawyerDefault from "./screens/Default/LawyerDefault";
 import CategoryLawyer from "./screens/Category-Lawyer/CategoryLawyer";
 import LawyerDetails from "./screens/LawyerDetails";
+import Checkout from "./screens/Checkout";
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
@@ -81,6 +82,11 @@ const AppNavigator = () => {
         <Stack.Screen
         name="LawyerDetails"
         component={LawyerDetails}
+        options={{headerShown:false}}
+        />
+        <Stack.Screen
+        name="Checkout"
+        component={Checkout}
         options={{headerShown:false}}
         />
       </Stack.Navigator>
