@@ -41,10 +41,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
       };
   
       axios.post(`${api}/login-Lawyer`, LawyerData).then(res => {
-        console.log(res.data);
+        // console.log(res.data.data.token1);
+        // console.log(res.data.data.token);
         if (res.data.status == 'ok') {
-          const token = res.data.data;
+          const token = res.data.data.token;
+          const token1 = res.data.data.token1;
         AsyncStorage.setItem("authTokenLawyer", token);
+        AsyncStorage.setItem("LawyerID", token1);
           Alert.alert('Logged In Successfull');
           navigation.navigate('LawyerDefault');
         }

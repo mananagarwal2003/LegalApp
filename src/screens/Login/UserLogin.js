@@ -9,12 +9,14 @@ const {
   Alert,
 } = require("react-native");
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import { api } from "../../api/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserType } from "../../Context/UserContext";
 
 function LoginPageUser({ props ,navigation}) {
+  const { userId, setUserId } = useContext(UserType);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const userType="User"
@@ -48,9 +50,13 @@ function LoginPageUser({ props ,navigation}) {
       else if(res.data.status == 'Wrongpass') {
         Alert.alert("wrong password!!");
       }
-      // console.log(res.data.token);
-        const token = res.data.token;
+      console.log(res.data.token.token);
+      console.log(res.data.token.token1);
+        const token =res.data.token.token;
+        const token1=res.data.token.token1
         AsyncStorage.setItem("authToken", token);
+        AsyncStorage.setItem("authID", token1);
+          setUserId(token1)
         Alert.alert('Logged In Successfull');
         navigation.navigate('Default');
     });

@@ -6,18 +6,42 @@ import {
   TouchableOpacity,
   ScrollView,
   Modal,
+  Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { api } from "../api/api";
+import { UserType } from "../Context/UserContext";
 
 export default function BusinessDetailScreen() {
+  const { userId, setUserId } = useContext(UserType);
   const { personDetails } = useRoute().params;
   const navigation = useNavigation();
-  const { name, LawyerCat, Number, LawyerID, about } = personDetails;
+  const { name, LawyerCat, Number, LawyerID, about ,_id} = personDetails;
   const [isReadMore, setReadMore] = useState(false);
+ console.log(_id)
+ console.log(userId)
 
+ const sendFriendRequest = async (currentUserId, selectedUserId) => {
+  try {
+    const response = await fetch(`${api}/friend-request`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ currentUserId, selectedUserId }),
+    });
+
+    if (response.ok) {
+      console.log("ok")
+      // setRequestSent(true);
+    }
+  } catch (error) {
+    console.log("error message", error);
+  }
+};
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -59,11 +83,24 @@ export default function BusinessDetailScreen() {
       </ScrollView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Contact</Text>
+          <Text style={styles.buttonText} >Contact</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button]} onPress={()=>navigation.navigate("Checkout")}>
           <Text style={[styles.buttonText]}>Book Now</Text>
         </TouchableOpacity>
+        <Pressable
+          onPress={() => sendFriendRequest(userId, _id)}
+          style={{
+            backgroundColor: "#567189",
+            padding: 10,
+            borderRadius: 6,
+            width: 105,
+          }}
+        >
+          <Text style={{ textAlign: "center", color: "white", fontSize: 13 }}>
+            Add Friend
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
