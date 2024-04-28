@@ -42,20 +42,17 @@ function LoginPageUser({ props ,navigation}) {
     };
 
     axios.post(`${api}/login-user`, userData).then(res => {
-      console.log(res.data.data);
-      if (res.data.status == 'ok') {
-        const token = res.data.data;
-        AsyncStorage.setItem("authToken", token);
-        Alert.alert('Logged In Successfull');
-        navigation.navigate('Default');
-      }
-      else if(res.data.status == 'null'){
+      if(res.data.status == 'null'){
         Alert.alert("User doesn't exists!!");
       }
       else if(res.data.status == 'Wrongpass') {
         Alert.alert("wrong password!!");
       }
-
+      // console.log(res.data.token);
+        const token = res.data.token;
+        AsyncStorage.setItem("authToken", token);
+        Alert.alert('Logged In Successfull');
+        navigation.navigate('Default');
     });
   }
   return (

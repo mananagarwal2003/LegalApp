@@ -1,10 +1,34 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity,Keyboard } from 'react-native';
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import Menu from "../Menu";
 import Bookings from '../Bookings';
 import Profile from "../Profile";
 import Corpus from "../Corpus"
+import { UserType } from '../../Context/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwt_decode from "jwt-decode";
 const Default = ({navigation}) => {
+  const { userId, setUserId } = useContext(UserType);
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const token = await AsyncStorage.getItem("authToken");
+      const decodedToken =  jwt_decode(token);
+      // const userId = decodedToken.userId;
+      console.log(token);
+
+      // axios
+      //   .get(`http://localhost:8000/users/${userId}`)
+      //   .then((response) => {
+      //     setUsers(response.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log("error retrieving users", error);
+      //   });
+    };
+
+    fetchUsers();
+  }, []);
   const [selectedTab, setSelectedTab]= useState(0);
   return (
     <View style={styles.container}>

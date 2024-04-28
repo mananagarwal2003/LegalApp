@@ -14,10 +14,12 @@ import LawyerDefault from "./screens/Default/LawyerDefault";
 import CategoryLawyer from "./screens/Category-Lawyer/CategoryLawyer";
 import LawyerDetails from "./screens/LawyerDetails";
 import Checkout from "./screens/Checkout";
+import { UserContext } from "./Context/UserContext";
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
+      <UserContext>
       <Stack.Navigator >
         <Stack.Screen
           name="Home"
@@ -90,6 +92,7 @@ const AppNavigator = () => {
         options={{headerShown:false}}
         />
       </Stack.Navigator>
+      </UserContext>
     </NavigationContainer>
   );
 };
