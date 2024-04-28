@@ -12,11 +12,27 @@ const {
   import { useEffect, useState } from "react";
   import axios from 'axios';
 import { api } from "../../api/api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
   
   function LoginPageLawyer({ props ,navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     // const userType="Lawyer"
+    useEffect(() => {
+      const checkLoginStatus = async () => {
+        try {
+          const token = await AsyncStorage.getItem("authTokenLawyer");
+          if (token) {
+            navigation.replace("LawyerDefault");
+          } else {
+            // token not found , show the login screen itself
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+      };
+      checkLoginStatus();
+    }, []);
     function handleSubmit() {
       console.log(email, password);
       const LawyerData = {
@@ -27,6 +43,8 @@ import { api } from "../../api/api";
       axios.post(`${api}/login-Lawyer`, LawyerData).then(res => {
         console.log(res.data);
         if (res.data.status == 'ok') {
+          const token = res.data.data;
+        AsyncStorage.setItem("authTokenLawyer", token);
           Alert.alert('Logged In Successfull');
           navigation.navigate('LawyerDefault');
         }

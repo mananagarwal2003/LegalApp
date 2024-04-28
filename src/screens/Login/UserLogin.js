@@ -12,13 +12,28 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { api } from "../../api/api";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function LoginPageUser({ props ,navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const userType="User"
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const token = await AsyncStorage.getItem("authToken");
 
+        if (token) {
+          navigation.replace("Default");
+        } else {
+          // token not found , show the login screen itself
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    checkLoginStatus();
+  }, []);
   function handleSubmit() {
     console.log(email, password);
     const userData = {
@@ -27,8 +42,10 @@ function LoginPageUser({ props ,navigation}) {
     };
 
     axios.post(`${api}/login-user`, userData).then(res => {
-      console.log(res.data);
+      console.log(res.data.data);
       if (res.data.status == 'ok') {
+        const token = res.data.data;
+        AsyncStorage.setItem("authToken", token);
         Alert.alert('Logged In Successfull');
         navigation.navigate('Default');
       }

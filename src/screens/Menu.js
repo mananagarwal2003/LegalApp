@@ -12,48 +12,6 @@ import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 const LawyerMenu = ({ onSelectOption, navigation }) => {
   const [searchQuery, setSearchQuery] = useState("");
-
-  //   // Dummy data for lawyers
-  //   const lawyers = [
-  //     'Criminal Lawyer',
-  //     'Business Lawyer',
-  //     'Family Lawyer',
-  //     'Marriage Lawyer',
-  //     'Divorce Lawyer',
-  //     'Immigration Lawyer',
-  //   ];
-
-  //   // Function to filter lawyers based on search query
-  //   const filteredLawyers = lawyers.filter(lawyer =>
-  //     lawyer.toLowerCase().includes(searchQuery.toLowerCase())
-  //   );
-
-  //   const renderLawyerItem = (lawyer, index) => (
-  //     <TouchableOpacity
-  //       key={index}
-  //       style={styles.option}
-  //       onPress={() => onSelectOption(lawyer)}>
-  //       <Text style={styles.optionText}>{lawyer}</Text>
-  //     </TouchableOpacity>
-  //   );
-
-  //   const renderLawyerPairs = () => {
-  //     const pairs = [];
-  //     for (let i = 0; i < filteredLawyers.length; i += 2) {
-  //       const pair = (
-  //         <View key={i} style={styles.pairContainer}>
-  //           {renderLawyerItem(filteredLawyers[i], i)}
-  //           {filteredLawyers[i + 1] && renderLawyerItem(filteredLawyers[i + 1], i + 1)}
-  //         </View>
-  //       );
-  //       pairs.push(pair);
-  //     }
-  //     return pairs;
-  //   };
-  const dataToSend = "Hello from Screen A!";
-  function nav() {
-    navigation.navigate("CategoryLawyer", { data: dataToSend });
-  }
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>

@@ -65,7 +65,7 @@ const Checkout = () => {
           />
           <Text style={styles.paymentMethdodsTxt}>UPI</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.paymentMethods}
           onPress={() => {
             setSelectedMethod(3);
@@ -83,7 +83,7 @@ const Checkout = () => {
             ]}
           />
           <Text style={styles.paymentMethdodsTxt}>Cash on Delivery</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         </View>
         <View>
           <TouchableOpacity
