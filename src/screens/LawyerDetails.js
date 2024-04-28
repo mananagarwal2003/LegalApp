@@ -15,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import { api } from "../api/api";
 import { UserType } from "../Context/UserContext";
 
-export default function BusinessDetailScreen() {
+export default function LawyerDetails() {
   const { userId, setUserId } = useContext(UserType);
   const { personDetails } = useRoute().params;
   const navigation = useNavigation();
@@ -36,6 +36,7 @@ export default function BusinessDetailScreen() {
 
     if (response.ok) {
       console.log("ok")
+      navigation.navigate("ChatMenuUser")
       // setRequestSent(true);
     }
   } catch (error) {
@@ -82,13 +83,13 @@ export default function BusinessDetailScreen() {
         </View>
       </ScrollView>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity  onPress={() => sendFriendRequest(userId, _id)} style={styles.button}>
           <Text style={styles.buttonText} >Contact</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button]} onPress={()=>navigation.navigate("Checkout")}>
           <Text style={[styles.buttonText]}>Book Now</Text>
         </TouchableOpacity>
-        <Pressable
+        {/* <Pressable
           onPress={() => sendFriendRequest(userId, _id)}
           style={{
             backgroundColor: "#567189",
@@ -100,7 +101,7 @@ export default function BusinessDetailScreen() {
           <Text style={{ textAlign: "center", color: "white", fontSize: 13 }}>
             Add Friend
           </Text>
-        </Pressable>
+        </Pressable> */}
       </View>
     </View>
   );

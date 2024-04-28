@@ -4,7 +4,6 @@ import Home from "./screens/Home";
 import Default from "./screens/Default/Default"
 import Menu from "./screens/Menu"
 import Profile from "./screens/Profile";
-import Bookings from "./screens/Bookings";
 import Corpus from "./screens/Corpus"
 import LoginPageLawyer from "./screens/Login/LawyerLogin";
 import LoginPageUser from "./screens/Login/UserLogin";
@@ -15,6 +14,8 @@ import CategoryLawyer from "./screens/Category-Lawyer/CategoryLawyer";
 import LawyerDetails from "./screens/LawyerDetails";
 import Checkout from "./screens/Checkout";
 import { UserContext } from "./Context/UserContext";
+import ChatMenuLawyer from "./ChatMenuLawyer";
+import ChatMenuUser from "./screens/ChatMenuUser";
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
@@ -62,8 +63,8 @@ const AppNavigator = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Bookings"
-          component={Bookings}
+          name="ChatMenuUser"
+          component={ChatMenuUser}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -89,6 +90,11 @@ const AppNavigator = () => {
         <Stack.Screen
         name="Checkout"
         component={Checkout}
+        options={{headerShown:false}}
+        />
+        <Stack.Screen
+        name="ChatMenuLawyer"
+        component={ChatMenuLawyer}
         options={{headerShown:false}}
         />
       </Stack.Navigator>

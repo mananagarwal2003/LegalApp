@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import Menu from "../Menu";
-import Bookings from "../Bookings";
 import Profile from "../Profile";
 import Corpus from "../Corpus";
 import { UserType } from "../../Context/UserContext";
@@ -16,6 +15,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { api } from "../../api/api";
+import Bookings from "../ChatMenuUser";
+import ChatMenuUser from "../ChatMenuUser";
 const Default = ({ navigation }) => {
   const { userId, setUserId } = useContext(UserType);
   const [users, setUsers] = useState([]);
@@ -47,7 +48,7 @@ const Default = ({ navigation }) => {
       {selectedTab == 0 ? (
         <Menu navigation={navigation} />
       ) : selectedTab == 1 ? (
-        <Bookings navigation={navigation} />
+        <ChatMenuUser navigation={navigation} />
       ) : selectedTab == 2 ? (
         <Corpus navigation={navigation} />
       ) : (

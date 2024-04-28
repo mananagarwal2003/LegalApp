@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity,Keyboard } from 'react-native';
 import React, { useState,useEffect } from 'react';
 import Menu from "../Menu";
-import Bookings from '../Bookings';
+import Bookings from '../ChatMenuUser';
 import Profile from "../Profile";
 import Corpus from "../Corpus"
 import LawyerChat from '../Chat/LawyerChat';
+import ChatMenuLawyer from '../../ChatMenuLawyer';
 const LawyerDefault = ({navigation}) => {
   const [selectedTab, setSelectedTab]= useState(0);
   return (
@@ -12,7 +13,7 @@ const LawyerDefault = ({navigation}) => {
     {selectedTab==0?(
      <LawyerChat navigation={navigation}/>
     ):selectedTab==1?(
-      <Bookings navigation={navigation}/>
+      <ChatMenuLawyer navigation={navigation}/>
     )
      :(<Profile navigation={navigation}/>)}
       <View style={styles.bottomView}>

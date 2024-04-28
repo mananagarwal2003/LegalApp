@@ -29,7 +29,7 @@ const ContactRequest = ({ item, friendRequests, setFriendRequests }) => {
         setFriendRequests(
           friendRequests.filter((request) => request._id !== friendRequestId)
         );
-        navigation.navigate("Bookings");
+        navigation.navigate("ChatMenuLawyer");
       }
     } catch (err) {
       console.log("error acceptin the friend request", err);
